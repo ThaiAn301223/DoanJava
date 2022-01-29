@@ -1,0 +1,20 @@
+CREATE SCHEMA `quanlydanhsachnhac` ;
+
+USE quanlydanhsachnhac;
+
+SELECT * FROM quanlydanhsachnhac.danhsach;
+
+CREATE TABLE `quanlydanhsachnhac`.`danhsach` (
+  `MABAIHAT` INT NOT NULL AUTO_INCREMENT,
+  `TENBAIHAT` NVARCHAR(50) NOT NULL,
+  `TENCASI` NVARCHAR(50) NOT NULL,
+  `THOILUONG` INT NOT NULL,
+  `THELOAI` NVARCHAR(10) NOT NULL,
+  `LOIBAIHAT` NVARCHAR(100) NOT NULL,
+  PRIMARY KEY (`MABAIHAT`))
+ENGINE = InnoDB
+AUTO_INCREMENT = 1;
+
+
+INSERT INTO danhsach (TENBAIHAT,TENCASI,THOILUONG,THELOAI,LOIBAIHAT)
+VALUES ("Bước Qua Nhau","Vũ","300","Ballad","Cuộc đời cứ trôi.....");
