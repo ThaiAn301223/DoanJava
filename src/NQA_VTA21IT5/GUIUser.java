@@ -53,7 +53,6 @@ public class GUIUser extends JFrame implements ActionListener{
 	String[] chosse = {"Tên bài hát","Tên ca sĩ"};
 	private final JComboBox comboBox = new JComboBox(chosse);
 	String sql = "";
-	private final JButton hienthi = new JButton("HIỂN THỊ");
 
 	public GUIUser() {
 		textField.setColumns(12);
@@ -97,10 +96,6 @@ public class GUIUser extends JFrame implements ActionListener{
 		sPane.setColumnHeaderView(label);
 		
 		sPane.setColumnHeaderView(panel);
-		hienthi.setBackground(new Color(100, 149, 237));
-		hienthi.setFont(new Font("Tahoma", Font.BOLD, 12));
-		
-		pan2.add(hienthi, BorderLayout.NORTH);
 		
 		//Chỉnh sửa các nút
 		timkiem.setForeground(Color.DARK_GRAY);
@@ -137,7 +132,6 @@ public class GUIUser extends JFrame implements ActionListener{
 		about.addActionListener(this);
 		thoat.addActionListener(this);
 		tongso.addActionListener(this);
-		hienthi.addActionListener(this);
 		
 		
 		
@@ -263,9 +257,6 @@ public class GUIUser extends JFrame implements ActionListener{
 			System.exit(0);
 		}else if (check == "TỔNG SỐ") {
 			JOptionPane.showMessageDialog(rootPane, "Số bài hát hiện có: " + tongso(),"Tổng",JOptionPane.INFORMATION_MESSAGE);
-		}else if (check == "HIỂN THỊ") {
-			load();
-			dModel.fireTableDataChanged();
 		}
 		
 		
