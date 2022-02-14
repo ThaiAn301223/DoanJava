@@ -76,7 +76,9 @@ public class GUIUser extends JFrame implements ActionListener{
 		pan2.setBackground(Color.LIGHT_GRAY);
 		//Thêm danh sách
 		getContentPane().add(pan2,BorderLayout.CENTER);
-		load();
+		for (int i = 0; i < 6; i++) {
+				vTitle.add(title[i]);
+			}
 		dModel = new DefaultTableModel(vData,vTitle);
 		danhsach = new JTable(dModel);
 		danhsach.setFont(new Font("Tahoma", Font.ITALIC, 13));
@@ -140,42 +142,6 @@ public class GUIUser extends JFrame implements ActionListener{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
-	public void  load() {
-		try {
-			vTitle.clear();
-			vData.clear();
-			Class.forName("com.mysql.jdbc.Driver");
-			Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/quanlydanhsachnhac","root","andubadao123");
-			Statement st = conn.createStatement();
-			ResultSet rs = st.executeQuery("select * from danhsach");
-			ResultSetMetaData rsmt = rs.getMetaData();
-			
-			int num_column = rsmt.getColumnCount();
-			
-			for (int i = 0; i < num_column; i++) {
-				vTitle.add(title[i]);
-			}
-			
-			while (rs.next()) {
-				Vector row = new Vector<>(num_column);
-				for (int i = 1; i <= num_column; i++) {
-					row.add(rs.getString(i));
-					
-				}
-				vData.add(row);
-			}
-			
-			conn.close();
-			rs.close();
-			st.close();
-			
-			
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-	}
-	
 	
 	public int tongso() {
 		int count = 0;
